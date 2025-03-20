@@ -6,7 +6,8 @@ import Contact from './Contact';
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const blogContainerRef = useRef(null); // Reference for the blogs container
-
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
