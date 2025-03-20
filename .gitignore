@@ -1,0 +1,24 @@
+# Node modules (dependencies)
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Build files
+frontend/build/
+backend/dist/
+
+# Logs and cache
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (DO NOT SHARE SECRETS)
+.env
+frontend/.env
+backend/.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db

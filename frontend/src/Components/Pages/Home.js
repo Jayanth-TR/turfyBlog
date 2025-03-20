@@ -7,11 +7,11 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const blogContainerRef = useRef(null); // Reference for the blogs container
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-  
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('${API_BASE_URL}/api/blogs');
+        const response = await fetch(`${API_BASE_URL}/api/blogs`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -5,11 +5,11 @@ const Blog = () => {
   const [blogs, setBlogs] = useState([]); // Store all blogs
   const [error, setError] = useState(null);
   const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
-  
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('${API_BASE_URL}/api/blogs'); // Fetch all blogs
+        const response = await fetch(`${API_BASE_URL}/api/blogs`); // Fetch all blogs
         if (!response.ok) {
           throw new Error('Error fetching blogs');
         }

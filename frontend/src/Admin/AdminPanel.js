@@ -114,7 +114,7 @@ const AdminPanel = () => {
     e.preventDefault();
 
     try {
-          const response = await fetch('${API_BASE_URL}/api/login', {
+          const response = await fetch(`${API_BASE_URL}/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
