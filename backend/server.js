@@ -22,8 +22,8 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 app.use(express.json());
 app.use(cors({
-  origin: 'https://turfyblogsite.netlify.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  origin: ['https://turfyblogsite.netlify.app', 'https://turfy-blog.vercel.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
