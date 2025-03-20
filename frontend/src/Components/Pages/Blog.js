@@ -4,11 +4,12 @@ import '../../Css/Blog.css';
 const Blog = () => {
   const [blogs, setBlogs] = useState([]); // Store all blogs
   const [error, setError] = useState(null);
-
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+  
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/blogs'); // Fetch all blogs
+        const response = await fetch('${API_BASE_URL}/api/blogs'); // Fetch all blogs
         if (!response.ok) {
           throw new Error('Error fetching blogs');
         }
@@ -48,7 +49,7 @@ const Blog = () => {
                 
                 {blog.image && (
                   <img 
-                    src={`http://localhost:5000/${blog.image}`} 
+                    src={`${API_BASE_URL}/${blog.image}`} 
                     alt={blog.title} 
                     className="autoShow img-fluid" 
                     style={{ width: '100%', height: 'auto', marginBottom: '10px' }} 

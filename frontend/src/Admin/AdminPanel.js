@@ -15,6 +15,7 @@ const AdminPanel = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
  
 
@@ -34,7 +35,7 @@ const AdminPanel = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/blogs');
+      const response = await fetch(`${API_BASE_URL}/api/blogs`);
       if (!response.ok) throw new Error('Failed to fetch blogs.');
       const data = await response.json();
       setBlogs(data);
@@ -58,8 +59,8 @@ const AdminPanel = () => {
       const token = localStorage.getItem('adminToken');
       console.log('token:',token);
       const response = await fetch(isEditing 
-        ? `http://localhost:5000/api/blogs/${editId}` 
-        : 'http://localhost:5000/api/blogs', 
+        ? `${API_BASE_URL}/api/blogs/${editId}` 
+        : `${API_BASE_URL}/api/blogs`, 
         {
           method: isEditing ? 'PUT' : 'POST',
           headers: {
@@ -101,7 +102,7 @@ const AdminPanel = () => {
     try {
      
       const token = localStorage.getItem('adminToken');
-      await fetch(`http://localhost:5000/api/blogs/${id}`, { method: 'DELETE',headers:{'Authorization':`Bearer ${token}`}, });
+      await fetch(`${API_BASE_URL}/api/blogs/${id}`, { method: 'DELETE',headers:{'Authorization':`Bearer ${token}`}, });
       fetchBlogs(); 
     } catch (error) {
       console.error('Error deleting blog:', error);
@@ -113,7 +114,7 @@ const AdminPanel = () => {
     e.preventDefault();
 
     try {
-          const response = await fetch('http://localhost:5000/api/login', {
+          const response = await fetch('${API_BASE_URL}/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -226,7 +227,7 @@ const AdminPanel = () => {
                 {blog.title}
               </h3>
               <p>{blog.content}</p>
-              {blog.image && <img src={`http://localhost:5000/${blog.image}`} alt={blog.title} style={{ width: '100%', height: 'auto' }} />}
+              {blog.image && <img src={`${API_BASE_URL}/${blog.image}`} alt={blog.title} style={{ width: '100%', height: 'auto' }} />}
               <button
                 style={{ backgroundColor: "#00ED64", color: 'black', fontWeight: 'bold', border: "none" }}
                 className='mt-3 ps-3 pe-3 me-3 rounded fs-5'

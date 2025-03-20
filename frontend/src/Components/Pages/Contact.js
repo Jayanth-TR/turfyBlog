@@ -7,12 +7,13 @@ const Contact = () => {
     const [message, setMessage] = useState('');
     const[error,setError] = useState(null);
     const [success, setSuccess] = useState(false);
-
+    const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+    
     const handleContactSubmit =async (e) => {
         e.preventDefault();
         const contactData = {name, email, message};
         try{
-            const response = await fetch('http://localhost:5000/api/contacts',{
+            const response = await fetch('${API_BASE_URL}/api/contacts',{
                 method:'POST',
                 headers:{
                     'Content-type':"application/json",

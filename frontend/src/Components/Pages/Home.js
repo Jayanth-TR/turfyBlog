@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/blogs');
+        const response = await fetch('${API_BASE_URL}/api/blogs');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -77,7 +77,7 @@ const Home = () => {
             <div className="col-12 col-md-4 mb-4" key={blog._id}>
               <div className="blog-img card h-100">
                 <img 
-                  src={`http://localhost:5000/${blog.image}`} 
+                  src={`${API_BASE_URL}/${blog.image}`} 
                   alt={blog.title} 
                   className="card-img-top" 
                   style={{ height: '200px', objectFit: 'cover' }} 
