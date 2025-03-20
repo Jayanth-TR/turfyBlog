@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap');
+
+
+.container h1 {
+    background-color: rgba(0, 30, 43, var(--tw-bg-opacity));
+  }
+  .custom-bg {
+    background-color: rgb(0, 30, 43);
+    
+  }
+  .autoShow{
+    animation: autoShowAnimation both;
+    animation-timeline: view(70% 5%);
+  }
+  @keyframes autoShowAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.6);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+  }
+  @media (max-width: 575.98px) {
+    .blog-img{
+      width: 100%;
+      height: auto;
+    }
+     
+  }
+
+  /* Horizontal scrolling container */
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to new line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.scrolling-wrapper .col-md-4 {
+  flex: 0 0 auto; /* Prevent flex items from shrinking or growing */
+  margin-right: 15px; /* Add some spacing between blog cards */
+}
+
+/* Hide the scrollbar but keep scrolling functionality */
+.scrolling-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.scrolling-wrapper {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Scroll buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 30, 43, 0.8);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 30px;
+  border-radius: 50%;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 30, 43, 1);
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
